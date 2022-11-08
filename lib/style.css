@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .container{
     display: block;
     justify-content: center;
@@ -17,4 +18,22 @@
 .table{
     background-color: white;
 
+}
+
+body{
+    font-family: "B612";
+    font-size: 18px;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;    
+}
+
+.row {
+    overflow: hidden;
+}
+.col {
+    float: left;
+    margin: 40px;
+    padding-bottom: 100%;
+    margin-bottom: -100%;
 }
