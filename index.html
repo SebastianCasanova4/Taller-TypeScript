@@ -9,28 +9,37 @@
     <link rel="stylesheet" href="lib/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script type="module" src='./scripts/main.js'></script>
+    <meta name="referrer" content="no-referrer">
 </head>
 <body>
     <div class="banner">
         <img src="data/logo.png" width="80" height="50"></img>
     </div>
     <div class="container">
-        <div class="table" class="row">
-            <h1>Table</h1>
-            <table class="table table-striped" id="id_series">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Channel</th>
-                    <th scope="col">Seasons</th>
-                  </tr>
-                </thead>
-              </table>
-              <table id="promedio"></table>
+        <div class="row">
+            <h1>TV Shows</h1>
         </div>
         <div class="row">
-            <h1>Info</h1>
+            <div class="table" class="col">
+                <h2>Table</h2>
+                <table class="thead-light" id="id_series">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Channel</th>
+                        <th scope="col">Seasons</th>
+                    </tr>
+                    </thead>
+                </table>
+                <table id="promedio"></table>
+            </div>
+            <div class="col">
+                <h2>Info</h2>
+                <div class="card" style="width: 40rem;" id="cardInfo">
+                    
+                </div>
+            </div>
         </div>
     </div>
 </body>

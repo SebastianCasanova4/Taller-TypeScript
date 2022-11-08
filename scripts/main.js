@@ -10,14 +10,17 @@ export var series = [
 console.log(series);
 var seriesTable = document.getElementById("id_series");
 var promedioTable = document.getElementById("promedio");
+var cardInfo = document.getElementById("cardInfo");
+var botones = document.getElementsByClassName("btn");
 mostrarDatosSeries(series);
 mostrarPromedio(series);
+mostrarCardSerie();
 function mostrarDatosSeries(array_series) {
     var seriesTbody = document.createElement("tbody");
     for (var _i = 0, array_series_1 = array_series; _i < array_series_1.length; _i++) {
         var sr = array_series_1[_i];
         var trElement = document.createElement("tr");
-        trElement.innerHTML = "<th scope=\"row\">".concat(sr.id, "</th>\n        <td>").concat(sr.name, "</td>\n        <td>").concat(sr.canal, "</td>\n        <td>").concat(sr.temporadas, "</td>");
+        trElement.innerHTML = "<th scope=\"row\">".concat(sr.id, "</th>\n        <td><input type=\"button\" value=\"").concat(sr.name, "\" id=").concat(sr.id, " class=\"btn\" style=\"color:#FF0000;\"></input></td>\n        <td>").concat(sr.canal, "</td>\n        <td>").concat(sr.temporadas, "</td>");
         seriesTbody.appendChild(trElement);
     }
     seriesTable.appendChild(seriesTbody);
@@ -34,4 +37,15 @@ function mostrarPromedio(array_series) {
     var trElement = document.createElement("tr");
     trElement.innerHTML = "<td><b>Seasons avarege: </b></td><td>".concat(promedio, "</td>");
     promedioTable.appendChild(trElement);
+}
+function mostrarCardSerie() {
+    var _loop_1 = function () {
+        var btn = document.getElementById(botones[i].id);
+        var sr = series[Number(botones[i].id) - 1];
+        var element = "<img class=\"card-img-top\" src=\"".concat(sr.imagen, "\" alt=\"Card image cap\">\n                    <div class=\"card-body\">\n                    <h5>").concat(sr.name, "</h5>\n                    <p class=\"card-text\">").concat(sr.descripcion, "\n</p>\n                    <p class=\"card-text\" style=\"color:#FF0000;\">").concat(sr.enlace, "</p>\n                    </div>");
+        btn.addEventListener("click", function (e) { return cardInfo.innerHTML = element; });
+    };
+    for (var i = 0; i < botones.length; i++) {
+        _loop_1();
+    }
 }

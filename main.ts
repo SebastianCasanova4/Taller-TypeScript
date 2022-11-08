@@ -23,16 +23,19 @@ console.log(series);
 
 let seriesTable = document.getElementById("id_series")!;
 let promedioTable = document.getElementById("promedio")!;
+let cardInfo = document.getElementById("cardInfo")!;
+let botones= document.getElementsByClassName("btn")!;
 
 mostrarDatosSeries(series);
 mostrarPromedio(series);
+mostrarCardSerie();
 
 function mostrarDatosSeries(array_series: Serie[]):void{
     let seriesTbody: HTMLElement = document.createElement("tbody");
     for(let sr of array_series){
         let trElement: HTMLElement = document.createElement("tr");
         trElement.innerHTML = `<th scope="row">${sr.id}</th>
-        <td>${sr.name}</td>
+        <td><input type="button" value="${sr.name}" id=${sr.id} class="btn" style="color:#FF0000;"></input></td>
         <td>${sr.canal}</td>
         <td>${sr.temporadas}</td>`;
         seriesTbody.appendChild(trElement);
@@ -52,3 +55,19 @@ function mostrarPromedio(array_series: Serie[]):void{
     trElement.innerHTML = `<td><b>Seasons avarege: </b></td><td>${promedio}</td>`;
     promedioTable.appendChild(trElement);
 }
+
+function mostrarCardSerie():void{    
+    for (var i = 0; i < botones.length; i++) 
+        {
+            let btn: HTMLElement = document.getElementById(botones[i].id)!;
+            let sr: Serie = series[Number(botones[i].id)-1];
+            let element =   `<img class="card-img-top" src="${sr.imagen}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5>${sr.name}</h5>
+                    <p class="card-text">${sr.descripcion}\n</p>
+                    <p class="card-text" style="color:#FF0000;">${sr.enlace}</p>
+                    </div>`
+            btn.addEventListener("click", (e:Event) => cardInfo.innerHTML = element);
+        }
+}
+
